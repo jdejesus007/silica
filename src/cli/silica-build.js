@@ -148,8 +148,8 @@ function envReplaceTransform(chunk) {
 
 var flags = {
   js: 'build_cache/**/*.js',
-  language_in: 'ECMASCRIPT6',
-  language_out: 'ECMASCRIPT5',
+  // language_in: 'ECMASCRIPT6',
+  // language_out: 'ECMASCRIPT5',
   compilation_level: 'ADVANCED',
   externs: 'src/externs.js'
 };
