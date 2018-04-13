@@ -2,9 +2,8 @@
 
 // Node Provided modules
 const  exec  =  require('child_process').exec;
+const  http  =  require('http');
 const  path  =  require('path');
-const  fs    =  require('fs');
-const  net   =  require('net');
 
 // Third party dependencies
 const  livereload    =  require('livereload');
@@ -64,8 +63,7 @@ watch.createMonitor('./src', { 'ignoreDotFiles': true}, function (monitor) {
   monitor.on("removed", rebuild);
 });
 
-function handler(request, response)
-{
+require('http').createServer(function (request, response) {
   request.addListener('end', function () {
     fileServer.serve(request, response, function (e, res) {
       if (e && (e.status === 404)) {
@@ -74,26 +72,7 @@ function handler(request, response)
       }
     });
   }).resume();
-}
-
-function tcpConnection(conn) {
-    conn.once('data', function (buf) {
-        // A TLS handshake record starts with byte 22.
-        var address = (buf[0] === 22) ? httpsAddress : redirectAddress;
-        var proxy = net.createConnection(address, function () {
-            proxy.write(buf);
-            conn.pipe(proxy).pipe(conn);
-        });
-    });
-}
-
-function httpConnection(req, res) {
-    var host = req.headers['host'];
-    res.writeHead(301, { "Location": "https://" + host + req.url });
-    res.end();
-}
-
-require('http').createServer(handler).listen(program.port || 8080);
+}).listen(program.port || 8080);
 
 rebuild();
 
