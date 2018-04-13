@@ -12,6 +12,8 @@
     "fs-extra": "^5.0.0",
     "google-closure-compiler": "20180402.0.0",
     "livereload": "^0.7.0",
+    "node-static": "latest",
+    "node-sprite-generator": "latest",
     "nib": "^1.1.2",
     "node-sprite-generator-jimp": "^0.0.1",
     "watch": "^1.0.2"
