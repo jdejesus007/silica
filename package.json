@@ -1,6 +1,6 @@
 {
-  "name": "silica",
-  "version": "0.60.0-rc6",
+  "name": "dej_silica",
+  "version": "0.60.0-rc7-1",
   "description": "Silica is a fast lightweight javascript framework for building applications. Silica's usage is designed to be as transparent as possible",
   "bin": {
     "silica": "src/cli/silica-cli.js",
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BakedSoftware/silica.git"
+    "url": "git+https://github.com/jdejesus007/silica.git"
   },
   "author": "Kayle Gishen",
   "license": "GPL-3.0",
@@ -41,6 +41,15 @@
   },
   "homepage": "https://github.com/BakedSoftware/Silica#readme",
   "standard": {
-    "globals": ["Silica", "goog", "XMLHttpRequest"]
-  }
+    "globals": [
+      "Silica",
+      "goog",
+      "XMLHttpRequest"
+    ]
+  },
+  "main": "build.js",
+  "directories": {
+    "example": "examples"
+  },
+  "devDependencies": {}
 }
